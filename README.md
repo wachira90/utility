@@ -17,3 +17,14 @@ function generatePassword(length) {
 var password = generatePassword(16);
 console.log(password);
 ````
+
+## shell genpassword
+
+````
+#!/bin/bash
+# Generate random number between 0.001 and 4
+RANDOM_NUMBER=$(awk -v min=0.001 -v max=4 'BEGIN{srand(); print (min+rand()*(max-min))}')
+# Format the number to 3 decimal places
+FORMATTED_NUMBER=$(printf "%.3f" $RANDOM_NUMBER)
+echo $FORMATTED_NUMBER
+````
