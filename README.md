@@ -79,3 +79,18 @@ curl -X POST \
   http://example.com/api
 ````
 
+## network state
+
+````
+#!/bin/bash
+while true
+do
+  if ip link show wifi0 | grep "state UP" > /dev/null
+  then
+    echo "OK"
+  else
+    echo "NOT CONNECTED"
+  fi
+  sleep 3
+done
+````
