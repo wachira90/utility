@@ -42,3 +42,21 @@ ufw allow <port number>/<protocol>
 
 ufw limit <port number>/<protocol>
 ````
+
+## check http code with delay
+
+````
+#!/bin/bash
+while true; do
+    status=$(curl -s -o /dev/null -w "%{http_code}" https://www.sirivatana.co.th)
+    if [ $status -eq 200 ]; then
+        echo "OK $(date +'%Y-%m-%d %T')"
+    else
+        echo "NOT OK $(date +'%Y-%m-%d %T')"
+    fi
+    RDNUM=$(awk -v min=0.001 -v max=6 'BEGIN{srand(); print (min+rand()*(max-min))}')
+    TIME_SLEEP=$(printf "%.3f" $RDNUM)
+    echo $TIME_SLEEP
+    sleep $TIME_SLEEP
+done
+````
