@@ -60,3 +60,22 @@ while true; do
     sleep $TIME_SLEEP
 done
 ````
+
+## shell post data
+
+````
+#!/bin/bash
+data=$(cat <<EOF
+{
+  "num1": 1,
+  "num2": 2
+}
+EOF
+)
+
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d "$data" \
+  http://example.com/api
+````
+
