@@ -1,9 +1,15 @@
-# utility
+# Utility
 Utility help and support all
 
-## javascript genpassword 
+## Show Permission Number
 
-````
+```sh
+ls -l | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf("%0o ",k);print}'
+```
+
+## Javascript Genpassword 
+
+```js
 
 function generatePassword(length) {
   var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*",
@@ -16,22 +22,22 @@ function generatePassword(length) {
 
 var password = generatePassword(16);
 console.log(password);
-````
+```
 
-## shell genpassword
+## Shell Genpassword
 
-````
+```sh
 #!/bin/bash
 # Generate random number between 0.001 and 4
 RANDOM_NUMBER=$(awk -v min=0.001 -v max=4 'BEGIN{srand(); print (min+rand()*(max-min))}')
 # Format the number to 3 decimal places
 FORMATTED_NUMBER=$(printf "%.3f" $RANDOM_NUMBER)
 echo $FORMATTED_NUMBER
-````
+```
 
 ## ufw firewall syn flood protect
 
-````
+```sh
 ufw enable
 
 ufw default deny incoming
@@ -41,11 +47,11 @@ ufw allow established
 ufw allow <port number>/<protocol>
 
 ufw limit <port number>/<protocol>
-````
+```
 
 ## check http code with delay
 
-````
+```sh
 #!/bin/bash
 while true; do
     status=$(curl -s -o /dev/null -w "%{http_code}" https://www.sirivatana.co.th)
@@ -59,11 +65,11 @@ while true; do
     echo $TIME_SLEEP
     sleep $TIME_SLEEP
 done
-````
+```
 
 ## shell post data
 
-````
+```sh
 #!/bin/bash
 data=$(cat <<EOF
 {
@@ -77,11 +83,11 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -d "$data" \
   http://example.com/api
-````
+```
 
-## network state
+## Network State
 
-````
+```sh
 #!/bin/bash
 while true
 do
@@ -93,4 +99,4 @@ do
   fi
   sleep 3
 done
-````
+```
