@@ -1,5 +1,16 @@
 # Utility
+
 Utility help and support all
+
+
+```
+cat /dev/null > ~/.bash_history && history -c && exit
+
+ssh-keygen -t ed25519
+
+nano .ssh/authorized_keys
+
+```
 
 ## Show Permission Number
 
