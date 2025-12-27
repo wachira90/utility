@@ -54,7 +54,7 @@ ufw limit <port number>/<protocol>
 ```sh
 #!/bin/bash
 while true; do
-    status=$(curl -s -o /dev/null -w "%{http_code}" https://www.sirivatana.co.th)
+    status=$(curl -s -o /dev/null -w "%{http_code}" https://www.example.com)
     if [ $status -eq 200 ]; then
         echo "OK $(date +'%Y-%m-%d %T')"
     else
